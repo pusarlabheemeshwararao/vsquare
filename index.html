@@ -547,25 +547,53 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <h3>Get a Free Quote</h3>
-                    <form onsubmit="handleSubmit(event)">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="Your Phone">
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Tell us about your security needs..." required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+  <h3>Get a Free Quote</h3>
+  <form id="query-form" onsubmit="handleSubmit(event)">
+    <div class="form-group">
+      <input type="text" name="name" placeholder="Your Name" required />
+    </div>
+    <div class="form-group">
+      <input type="email" name="email" placeholder="Your Email" required />
+    </div>
+    <div class="form-group">
+      <input type="tel" name="phone" placeholder="Your Phone" />
+    </div>
+    <div class="form-group">
+      <textarea name="securityNeeds" placeholder="Tell us about your security needs..." required></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Send Message</button>
+  </form>
+</div>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+
+  const form = document.getElementById("query-form");
+
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    phone: form.phone.value,
+    securityNeeds: form.securityNeeds.value,
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbxK2U8CVukCvCJHH_4S2StRevEU_5la57q_uBEUZ_kwpuzkh_kFl1k0AIZZPdoA3aC1/exec", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(response => {
+    alert("Thank you for contacting V Square. Our team will contact you shortly.");
+    form.reset();
+  })
+  .catch(error => {
+    console.error("Error:", error);
+    alert("Something went wrong. Please try again.");
+  });
+}
+</script>
     </section>
 
     <!-- Footer -->
