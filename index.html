@@ -510,8 +510,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Contact Section -->
+     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
@@ -564,20 +563,16 @@
     <button type="submit" class="submit-btn">Send Message</button>
   </form>
 </div>
-
 <script>
 function handleSubmit(e) {
   e.preventDefault();
-
   const form = document.getElementById("query-form");
-
   const data = {
     name: form.name.value,
     email: form.email.value,
     phone: form.phone.value,
     securityNeeds: form.securityNeeds.value,
   };
-
   fetch("https://script.google.com/macros/s/AKfycbzSsAHIi55RoGtmg7vgff9GDMTwI9fJJXjGHun92d7n-1kT4lFxbrzPCiJGLYe9QeJ6/exec", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
