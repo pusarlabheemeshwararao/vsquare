@@ -546,7 +546,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="contact-form">
+  <div class="contact-form">
   <h3>Get a Free Quote</h3>
   <form id="query-form" onsubmit="handleSubmit(event)">
     <div class="form-group">
@@ -578,7 +578,7 @@ function handleSubmit(e) {
     securityNeeds: form.securityNeeds.value,
   };
 
-  fetch("YOUR_GOOGLE_APPS_SCRIPT_URL_HERE", {
+  fetch("https://script.google.com/macros/s/AKfycbz1uVOxPl5GtrvlhgrjDdMA-JG445QM4kxKCVdGdbegXOb8xUbTMB-oPNEmNWzAjD4/exec", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data)
