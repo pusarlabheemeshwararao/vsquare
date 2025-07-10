@@ -635,4 +635,33 @@
         });
     </script>
 </body>
+    <script>
+function handleSubmit(e) {
+  e.preventDefault();
+
+  const form = document.getElementById("query-form");
+
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    phone: form.phone.value,
+    securityNeeds: form.securityNeeds.value,
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbxK2U8CVukCvCJHH_4S2StRevEU_5la57q_uBEUZ_kwpuzkh_kFl1k0AIZZPdoA3aC1/exec", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(response => {
+    alert("Your query was submitted successfully!");
+    form.reset();
+  })
+  .catch(error => {
+    console.error("Error:", error);
+    alert("Something went wrong. Please try again.");
+  });
+}
+</script>
 </html>
